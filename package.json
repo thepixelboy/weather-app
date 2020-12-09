@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/thepixelboy/weather-app#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "postman-request": "^2.88.1-postman.27"
   }
 }
