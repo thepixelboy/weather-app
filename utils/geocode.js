@@ -8,13 +8,13 @@ const geocode = (address, callback) => {
     address
   )}.json?access_token=${process.env.MAPBOX_ACCESS_TOKEN}&limit=1`;
 
-  request({ url: url, json: true }, (err, response) => {
+  request({ url, json: true }, (err, { body }) => {
     if (err) {
       callback('Unable to connect to location services');
-    } else if (response.body.features.length === 0) {
+    } else if (body.features.length === 0) {
       callback('Unable to find location. Try another search.');
     } else {
-      const mapbox = response.body.features[0];
+      const mapbox = body.features[0];
 
       callback(undefined, {
         latitude: mapbox.center[1],
